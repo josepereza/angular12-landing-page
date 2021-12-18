@@ -2,7 +2,39 @@
  An Angular Material landing page
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.0.4.
+## Using MediaMatcher
+* MediaMatcher is a service that wraps around JavaScript’s matchMedia. As with BreakpointObserver.observe, it can also be used to observe changes in the viewport size against a given media query.
 
+Here is an example that checks if min-width is 500px wide:
+```
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { MediaMatcher } from '@angular/cdk/layout';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent implements OnInit, OnDestroy {
+  matcher!: MediaQueryList;
+
+  constructor(public mediaMatcher: MediaMatcher) {}
+
+  ngOnInit() {
+    this.matcher = this.mediaMatcher.matchMedia('(min-width: 500px)');
+
+    this.matcher.addEventListener('change', this.myListener);
+  }
+
+  ngOnDestroy() {
+    this.matcher.removeEventListener('change', this.myListener);
+  }
+
+  myListener(event: { matches: any; }) {
+    console.log(event.matches ? 'match' : 'no match');
+  }
+}
+```
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
