@@ -201,7 +201,7 @@ This will log a message if the viewport is at least 40rem tall when the componen
 MediaMatcher is a service that wraps around JavaScript’s matchMedia. As with BreakpointObserver.observe, it can also be used to observe changes in the viewport size against a given media query.
 
 Here is an example that checks if min-width is 500px wide:
-
+```
 src/app/app.component.html
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { MediaMatcher } from '@angular/cdk/layout';
@@ -230,7 +230,7 @@ export class AppComponent implements OnInit, OnDestroy {
     console.log(event.matches ? 'match' : 'no match');
   }
 }
- 
+ ```
 The difference with BreakpointObserver.observe is that MediaMatcher gives us access to the native MatchQueryList object, which may be needed in certain scenarios.
 ## Code scaffolding
 
