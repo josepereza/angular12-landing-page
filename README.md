@@ -1,6 +1,6 @@
 # Angular Landing Page
  An Angular Material landing page
-
+![image](landing.png)
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.0.4.
 ## Using MediaMatcher
 https://www.digitalocean.com/community/tutorials/angular-breakpoints-angular-cdk
